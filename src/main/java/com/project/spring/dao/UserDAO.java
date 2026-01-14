@@ -5,13 +5,14 @@ import com.project.spring.entity.User;
 import java.util.List;
 
 public interface UserDAO {
+    List<User> getAllUsers();
 
-    public List<User> getAllUsers();
+    void saveUser(User user);
 
-    public void saveUser(User user);
+    void updateUser(User user);
 
-    public User getUserById(int id);
+    User getUserById(int id);
 
-    public void deleteUser(int id);
+    void deleteUser(int id);
 
 }

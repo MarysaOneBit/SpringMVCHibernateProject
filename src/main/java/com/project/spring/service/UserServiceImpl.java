@@ -9,32 +9,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
+
+    final private UserDAO userDAO;
+
     @Autowired
-    private UserDAO userDAO;
+    public UserServiceImpl(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
 
     @Override
-    @Transactional
     public List<User> getAllUsers() {
         return userDAO.getAllUsers();
     }
 
     @Override
-    @Transactional
     public void saveUser(User user) {
         userDAO.saveUser(user);
     }
 
     @Override
-    @Transactional
     public User getUserById(int id) {
         return userDAO.getUserById(id);
     }
 
     @Override
-    @Transactional
     public void deleteUser(int id) {
         userDAO.deleteUser(id);
+    }
+
+    @Override
+    public void updateUser(User user) {
+        userDAO.updateUser(user);
     }
 }
