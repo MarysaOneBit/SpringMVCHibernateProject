@@ -1,6 +1,6 @@
 package com.project.spring.service;
 
-import com.project.spring.dao.UserDAO;
+import com.project.spring.dao.UserDao;
 import com.project.spring.entity.User;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
@@ -13,10 +13,10 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
 
-    final private UserDAO userDAO;
+    final private UserDao userDAO;
 
     @Autowired
-    public UserServiceImpl(UserDAO userDAO) {
+    public UserServiceImpl(UserDao userDAO) {
         this.userDAO = userDAO;
     }
 

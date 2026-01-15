@@ -4,7 +4,7 @@ import com.project.spring.entity.User;
 
 import java.util.List;
 
-public interface UserDAO {
+public interface UserDao {
     List<User> getAllUsers();
 
     void saveUser(User user);

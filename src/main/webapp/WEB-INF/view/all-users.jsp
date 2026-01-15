@@ -35,8 +35,10 @@
             <td>
                 <input type="submit" value="Update"
                        onclick="window.location.href='${updatedButton}'"/>
-                <input type="submit" value="Delete"
-                       onclick="window.location.href='${deleteButton}'"/>
+                <form action="deleteUser" method="POST" style="display:inline;">
+                    <input type="hidden" name="userId" value="${user.id}"/>
+                    <input type="submit" value="Delete"/>
+                </form>
             </td>
 
 

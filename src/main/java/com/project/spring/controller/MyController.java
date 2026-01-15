@@ -28,6 +28,7 @@ public class MyController {
     @GetMapping("/addNewUser")
     public String addUser(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("formAction", "saveUser");
         return "user-info";
     }
 
@@ -44,10 +45,17 @@ public class MyController {
     @GetMapping("/updatedInfo")
     public String updatedUsers(@RequestParam("userId") int id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
+        model.addAttribute("formAction", "updateUser");
         return "user-info";
     }
 
-    @GetMapping("/deleteUser")
+    @PostMapping("/updateUser")
+    public String updateUser(@ModelAttribute("user") User user) {
+        userService.updateUser(user);
+        return "redirect:/";
+    }
+
+    @PostMapping("/deleteUser")
     public String deleteUser(@RequestParam("userId") int id) {
         userService.deleteUser(id);
         return "redirect:/";
