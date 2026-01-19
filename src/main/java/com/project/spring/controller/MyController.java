@@ -7,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 public class MyController {
 
@@ -34,11 +32,7 @@ public class MyController {
 
     @PostMapping("/saveUser")
     public String saveUser(@ModelAttribute("user") User user) {
-        if (user.getId() == 0) {
-            userService.saveUser(user);
-        } else {
-            userService.updateUser(user);
-        }
+        userService.saveUser(user);
         return "redirect:/";
     }
 
